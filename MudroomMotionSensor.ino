@@ -39,7 +39,7 @@ void presentation()
 
 	// Register all sensors to gw (they will be created as child devices)
 	present(CHILD_ID_MOTION_SENSOR, S_MOTION);
-  present(CHILD_ID_DOOR_SENSOR, S_DOOR);
+  present(CHILD_ID_DOOR_SENSOR, S_BINARY);
 }
 
 void loop()
