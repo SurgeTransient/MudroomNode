@@ -2,7 +2,7 @@
  *******************************
  *
  * REVISION HISTORY
- * Version 1.0 - Alex Arent
+ * Version 1.0
  *
  * DESCRIPTION
  * Motion Sensor example using HC-SR501. Based on the following MySensors example
@@ -39,7 +39,7 @@ void presentation()
 
 	// Register all sensors to gw (they will be created as child devices)
 	present(CHILD_ID_MOTION_SENSOR, S_MOTION);
-  present(CHILD_ID_DOOR_SENSOR, S_BINARY);
+  present(CHILD_ID_DOOR_SENSOR, S_DOOR);
 }
 
 void loop()
@@ -54,7 +54,7 @@ void loop()
 
   Serial.println("Door Sensor State");
   Serial.println(doorSensorState);
-  send(motionSensor.set(doorSensorState?"1":"0"));  
+  send(doorSensor.set(doorSensorState?"1":"0"));  
   
 	// Sleep until interrupt comes in on door or motion sensor
 	sleep(digitalPinToInterrupt(DIGITAL_INPUT_MOTION_SENSOR), CHANGE, digitalPinToInterrupt(DIGIAL_INPUT_DOOR_SENSOR), CHANGE,0);
